@@ -1,0 +1,127 @@
+{
+  "name": "lint",
+  "description": "Runs linting tools on Angular app code in a given project folder.\n\n针对给定项目目录下的 Angular 应用代码，运行 lint 工具",
+  "longDescription": "Takes the name of the project, as specified in the  `projects` section of the `angular.json` workspace configuration file.\nWhen a project name is not supplied, it will execute for all projects.\n\n获取在工作空间配置文件 `angular.json` 的 `projects` 部分指定的项目名称。如果未提供项目名称，它将对所有项目执行。\n\nThe default linting tool is [TSLint](https://palantir.github.io/tslint/), and the default configuration is specified in the project's `tslint.json` file.\n\n默认的 lint 工具是 [TSLint](https://palantir.github.io/tslint/)，其默认配置在项目的 `tslint.json` 文件中指定。\n\n**Note**: TSLint has been discontinued and support has been deprecated in the Angular CLI. The options shown below are for the deprecated TSLint builder.\nTo opt-in using the community driven ESLint builder, see [angular-eslint](https://github.com/angular-eslint/angular-eslint#migrating-from-codelyzer-and-tslint) README.\n\n**注意**：TSLint 已经中止开发了，并且在 Angular CLI 中将弃用此功能。下面显示的选项适用于已弃用的 TSLint 构建器。要选择社区驱动的 ESLint 构建器，请参阅 [angular-eslint](https://github.com/angular-eslint/angular-eslint#migrating-from-codelyzer-and-tslint) 的README。\n\n",
+  "options": [
+    {
+      "name": "project",
+      "description": "The name of the project to lint.\n\n要 lint 的项目名。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false,
+      "positional": 0
+    },
+    {
+      "name": "configuration",
+      "description": "The linting configuration to use.\n\n要使用的 lint 配置。",
+      "type": "string",
+      "required": false,
+      "aliases": [
+        "c"
+      ],
+      "hidden": false
+    },
+    {
+      "name": "help",
+      "description": "Shows a help message for this command in the console.\n\n在控制台显示关于本命令的帮助信息。",
+      "type": "boolean",
+      "types": [
+        "boolean",
+        "string"
+      ],
+      "default": false,
+      "enum": [
+        true,
+        false,
+        "json",
+        "JSON"
+      ],
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "tslint-config",
+      "description": "The name of the TSLint configuration file.\n\nTSLint 配置文件的名称。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "ts-config",
+      "description": "The name of the TypeScript configuration file.\n\nTypeScript 配置文件的名称。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "fix",
+      "description": "Fixes linting errors (may overwrite linted files).\n\n修复 lint 错误（可能会覆盖被 lint 的文件）。",
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "type-check",
+      "description": "Controls the type check for linting.\n\n控制 lint 的类型检查。",
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "force",
+      "description": "Succeeds even if there was linting errors.\n\n即使出现 lint 错误也返回成功。",
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "silent",
+      "description": "Show output text.\n\n显示输出文本。",
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "format",
+      "description": "Output format (prose, json, stylish, verbose, pmd, msbuild, checkstyle, vso, fileslist).\n\n输出格式（prose, json, stylish, verbose, pmd, msbuild, checkstyle, vso, fileslist）。",
+      "type": "string",
+      "default": "stylish",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "exclude",
+      "description": "Files to exclude from linting.\n\n要在 lint 时排除的文件。",
+      "type": "array",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "files",
+      "description": "Files to include in linting.\n\n要在 lint 时包含的文件。",
+      "type": "array",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    }
+  ],
+  "aliases": [
+    "l"
+  ],
+  "scope": "in",
+  "hidden": false
+}

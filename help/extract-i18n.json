@@ -1,0 +1,147 @@
+{
+  "name": "extract-i18n",
+  "description": "Extracts i18n messages from source code.\n\n从源码中提取 i18n 消息。",
+  "options": [
+    {
+      "name": "project",
+      "description": "The name of the project to build. Can be an application or a library.\n\n要构建的项目名。可以是应用或库。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false,
+      "positional": 0
+    },
+    {
+      "name": "configuration",
+      "description": "One or more named builder configurations as a comma-separated list as specified in the \"configurations\" section of angular.json.\nThe builder uses the named configurations to run the given target.\nFor more information, see https://angular.io/guide/workspace-config#alternate-build-configurations.\nSetting this explicitly overrides the \"--prod\" flag.\n\n构建器的一个或多个命名配置，是一个逗号分隔的列表，就像在 angular.json 的 \"configurations\" 部分指定的一样。\n构建器使用这些命名配置运行给定的目标。\n欲知详情，参见 https://angular.cn/guide/workspace-config#alternate-build-configurations。\n可以通过显式指定 \"--prod\" 标志来覆盖它。",
+      "type": "string",
+      "required": false,
+      "aliases": [
+        "c"
+      ],
+      "hidden": false
+    },
+    {
+      "name": "prod",
+      "description": "Shorthand for \"--configuration=production\".\nSet the build configuration to the production target.\nBy default, the production target is set up in the workspace configuration such that all builds make use of bundling, limited tree-shaking, and also limited dead code elimination.\n\n\"--configuration=production\" 的简写形式。\n把构建配置的目标设置为产品环境。\n默认情况下，产品环境目标是在工作空间配置中设置的，可以设置打包方式、摇树优化限制、死代码移除限制等方面。",
+      "type": "boolean",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "help",
+      "description": "Shows a help message for this command in the console.\n\n在控制台显示关于本命令的帮助信息。",
+      "type": "boolean",
+      "types": [
+        "boolean",
+        "string"
+      ],
+      "default": false,
+      "enum": [
+        true,
+        false,
+        "json",
+        "JSON"
+      ],
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "browser-target",
+      "description": "A browser builder target to extract i18n messages in the format of `project:target[:configuration]`. You can also pass in more than one configuration name as a comma-separated list. Example: `project:target:production,staging`.\n\n一个浏览器构建器目标，用来以 `project:target[:configuration]` 格式提取 i18n 消息。你还可以传入逗号分隔的多个配置名称列表。例如：`project:target:production,staging`。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "format",
+      "description": "Output format for the generated file.\n\n要生成文件的输出格式。",
+      "type": "string",
+      "default": "xlf",
+      "enum": [
+        "xmb",
+        "xlf",
+        "xlif",
+        "xliff",
+        "xlf2",
+        "xliff2",
+        "json",
+        "arb"
+      ],
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "i18n-format",
+      "description": "Output format for the generated file.\n\n要生成文件的输出格式。",
+      "type": "string",
+      "default": "xlf",
+      "enum": [
+        "xmb",
+        "xlf",
+        "xlif",
+        "xliff",
+        "xlf2",
+        "xliff2",
+        "json",
+        "arb"
+      ],
+      "required": false,
+      "aliases": [],
+      "hidden": false,
+      "deprecated": "Use 'format' option instead.\n\n改用 'format' 选项代替。"
+    },
+    {
+      "name": "i18n-locale",
+      "description": "Specifies the source language of the application.\n\n指定应用程序的源语言。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false,
+      "deprecated": "Use 'i18n' project level sub-option 'sourceLocale' instead.\n\n使用 'i18n' 项目级的子配置 'sourceLocale' 代替。"
+    },
+    {
+      "name": "ivy",
+      "description": "Use Ivy compiler to extract translations. The default for Ivy applications.\n\n使用 Ivy 编译器提取翻译。在 Ivy 应用中默认启用。",
+      "type": "boolean",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "progress",
+      "description": "Log progress to the console.\n\n将进度记录到控制台。",
+      "type": "boolean",
+      "default": true,
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "output-path",
+      "description": "Path where output will be placed.\n\n要放置输出结果的路径。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "out-file",
+      "description": "Name of the file to output.\n\n要输出的文件名。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    }
+  ],
+  "aliases": [
+    "i18n-extract",
+    "xi18n"
+  ],
+  "scope": "in",
+  "hidden": false
+}

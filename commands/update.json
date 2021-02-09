@@ -1,0 +1,96 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "ng-cli://commands/update.json",
+  "descriptionEn": "Updates your application and its dependencies. See https://update.angular.io/",
+  "description": "Updates your application and its dependencies. See https://update.angular.io/\n\n更新你的应用及其依赖。参见 https://update.angular.io/",
+  "$longDescription": "./update-long.md",
+
+  "$scope": "all",
+  "$aliases": [],
+  "$type": "schematics",
+  "$impl": "./update-impl#UpdateCommand",
+
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "./definitions.json#/definitions/base"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "packages": {
+          "descriptionEn": "The names of package(s) to update.",
+          "description": "The names of package(s) to update.\n\n要更新的包名（可以有多个）。",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "$default": {
+            "$source": "argv"
+          }
+        },
+        "force": {
+          "descriptionEn": "If false, will error out if installed packages are incompatible with the update.",
+          "description": "If false, will error out if installed packages are incompatible with the update.\n\n如果为 false，那么如果已安装的包与这次更新不兼容，就会报错并退出。",
+          "default": false,
+          "type": "boolean"
+        },
+        "all": {
+          "descriptionEn": "Whether to update all packages in package.json.",
+          "description": "Whether to update all packages in package.json.\n\n是否更新 package.json 中的所有包。",
+          "default": false,
+          "type": "boolean",
+          "x-deprecated": true
+        },
+        "next": {
+          "descriptionEn": "Use the prerelease version, including beta and RCs.",
+          "description": "Use the prerelease version, including beta and RCs.\n\n使用与发布版本，包括 beta 和 RC。",
+          "default": false,
+          "type": "boolean"
+        },
+        "migrateOnly": {
+          "descriptionEn": "Only perform a migration, do not update the installed version.",
+          "description": "Only perform a migration, do not update the installed version.\n\n只执行迁移，而不更新已安装的版本。",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "string",
+              "descriptionEn": "The name of the migration to run.",
+              "description": "The name of the migration to run.\n\n要运行的迁移的名字。"
+            }
+          ]
+        },
+        "from": {
+          "descriptionEn": "Version from which to migrate from. Only available with a single package being updated, and only on migration only.",
+          "description": "Version from which to migrate from. Only available with a single package being updated, and only on migration only.\n\n要从哪个版本开始迁移。只能用在升级单个包时，而且只能用于迁移工作。",
+          "type": "string"
+        },
+        "to": {
+          "descriptionEn": "Version up to which to apply migrations. Only available with a single package being updated, and only on migrations only. Requires from to be specified. Default to the installed version detected.",
+          "description": "Version up to which to apply migrations. Only available with a single package being updated, and only on migrations only. Requires from to be specified. Default to the installed version detected.\n\n要迁移到哪个版本。只能用在升级单个包时，而且只能用于迁移工作。需要指定过 from 参数。默认是所检测到的已安装版本。",
+          "type": "string"
+        },
+        "allowDirty": {
+          "descriptionEn": "Whether to allow updating when the repository contains modified or untracked files.",
+          "description": "Whether to allow updating when the repository contains modified or untracked files.\n\n是否允许本仓库包含已修改或未跟踪的文件时进行更新。",
+          "type": "boolean"
+        },
+        "verbose": {
+          "descriptionEn": "Display additional details about internal operations during execution.",
+          "description": "Display additional details about internal operations during execution.\n\n在执行期间显示关于内部操作的详情。",
+          "type": "boolean",
+          "default": false
+        },
+        "createCommits": {
+          "descriptionEn": "Create source control commits for updates and migrations.",
+          "description": "Create source control commits for updates and migrations.\n\n为升级和迁移的过程，在源码控制中创建一些提交。",
+          "type": "boolean",
+          "default": false,
+          "aliases": ["C"]
+        }
+      }
+    }
+  ]
+}

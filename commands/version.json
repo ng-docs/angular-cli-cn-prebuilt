@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "ng-cli://commands/version.json",
+  "descriptionEn": "Outputs Angular CLI version.",
+  "description": "Outputs Angular CLI version.\n\n输出 Angular CLI 的版本。",
+  "$longDescription": "",
+
+  "$aliases": [ "v" ],
+  "$scope": "all",
+  "$impl": "./version-impl#VersionCommand",
+
+  "type": "object",
+  "allOf": [
+    { "$ref": "./definitions.json#/definitions/base" }
+  ]
+}

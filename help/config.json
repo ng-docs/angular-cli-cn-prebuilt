@@ -1,0 +1,62 @@
+{
+  "name": "config",
+  "description": "Retrieves or sets Angular configuration values in the angular.json file for the workspace.\n\n从本工作空间的 angular.json 文件中获取或设置 Angular 的配置值。",
+  "options": [
+    {
+      "name": "json-path",
+      "description": "The configuration key to set or query, in JSON path format. For example: \"a[3].foo.bar[2]\". If no new value is provided, returns the current value of this key.\n\n要设置或查询的配置键，为 JSON path 格式。比如 \"a[3].foo.bar[2]\"。如果没有提供新值，则返回此配置键对应的当前值。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false,
+      "positional": 0
+    },
+    {
+      "name": "global",
+      "description": "Access the global configuration in the caller's home directory.\n\n访问此调用者 home 目录下的全局配置。",
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "aliases": [
+        "g"
+      ],
+      "hidden": false
+    },
+    {
+      "name": "help",
+      "description": "Shows a help message for this command in the console.\n\n在控制台显示关于本命令的帮助信息。",
+      "type": "boolean",
+      "types": [
+        "boolean",
+        "string"
+      ],
+      "default": false,
+      "enum": [
+        true,
+        false,
+        "json",
+        "JSON"
+      ],
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "value",
+      "description": "If provided, a new value for the given configuration key.\n\n如果提供，则为指定配置键的新值。",
+      "type": "string",
+      "types": [
+        "string",
+        "number",
+        "boolean"
+      ],
+      "required": false,
+      "aliases": [],
+      "hidden": false,
+      "positional": 1
+    }
+  ],
+  "aliases": [],
+  "scope": "all",
+  "hidden": false
+}

@@ -1,0 +1,29 @@
+{
+  "name": "help",
+  "description": "Lists available commands and their short descriptionEns.\n\n列出可用的命令，及其短描述。",
+  "longDescription": " For help with individual commands, use the `--help` or `-h` option with the command.\n\n要获得关于单个命令的帮助，请在命令中使用 `--help` 或 `-h` 选项。\n\n For example,\n\n 例如，\n\n ```sh\n ng help serve\n ```\n",
+  "options": [
+    {
+      "name": "help",
+      "description": "Shows a help message for this command in the console.\n\n在控制台显示关于本命令的帮助信息。",
+      "type": "boolean",
+      "types": [
+        "boolean",
+        "string"
+      ],
+      "default": false,
+      "enum": [
+        true,
+        false,
+        "json",
+        "JSON"
+      ],
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    }
+  ],
+  "aliases": [],
+  "scope": "all",
+  "hidden": false
+}

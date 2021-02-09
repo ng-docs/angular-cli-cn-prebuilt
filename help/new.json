@@ -1,0 +1,284 @@
+{
+  "name": "new",
+  "description": "Creates a new workspace and an initial Angular application.\n\n创建一个新工作空间和一个初始 Angular 应用。",
+  "longDescription": "Creates and initializes a new Angular application that is the default project for a new workspace.\n\n创建并初始化一个新的 Angular 应用程序，该应用程序是新工作区的默认项目。\n\nProvides interactive prompts for optional configuration, such as adding routing support.\nAll prompts can safely be allowed to default.\n\n提供交互式提示以提供可选配置，例如添加路由支持。可以放心地为所有提示选择其默认值。\n\n* The new workspace folder is given the specified project name, and contains configuration files at the top level.\n\n  新的工作空间文件夹名称就是指定的项目名称，并且在顶层包含了配置文件。\n\n* By default, the files for a new initial application (with the same name as the workspace) are placed in the `src/` subfolder. Corresponding end-to-end tests are placed in the `e2e/` subfolder.\n\n  默认情况下，新的初始应用程序（与工作空间名称相同）的文件放置在 `src/` 子文件夹中。相应的端到端测试位于 `e2e/` 子文件夹中。\n\n* The new application's configuration appears in the `projects` section of the `angular.json` workspace configuration file, under its project name.\n\n  新应用程序的配置位于工作区配置文件 `angular.json` 中 `projects` 部分的项目名称下。\n\n* Subsequent applications that you generate in the workspace reside in the `projects/` subfolder.\n\n  你在工作空间中生成的后续应用程序位于 `projects/` 子文件夹中。\n\nIf you plan to have multiple applications in the workspace, you can create an empty workspace by setting the `--createApplication` option to false.\nYou can then use `ng generate application` to create an initial application.\nThis allows a workspace name different from the initial app name, and ensures that all applications reside in the `/projects` subfolder, matching the structure of the configuration file.\n\n如果你计划在工作空间中放多个应用程序，则可以通过将 `--createApplication` 选项设置为 false 来创建一个空的工作空间。然后，你可以使用 `ng generate application` 创建一个初始应用程序。这能让工作空间的名称不同于初始应用程序的名称，并确保所有应用程序都位于 `/projects` 子文件夹中，并与配置文件的结构匹配。\n",
+  "options": [
+    {
+      "name": "collection",
+      "description": "A collection of schematics to use in generating the initial application.\n\n用来生成初始应用的一组原理图。",
+      "type": "string",
+      "required": false,
+      "aliases": [
+        "c"
+      ],
+      "hidden": false
+    },
+    {
+      "name": "verbose",
+      "description": "Add more details to output logging.\n\n在输出日志中添加更多详情。",
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "aliases": [
+        "v"
+      ],
+      "hidden": false
+    },
+    {
+      "name": "help",
+      "description": "Shows a help message for this command in the console.\n\n在控制台显示关于本命令的帮助信息。",
+      "type": "boolean",
+      "types": [
+        "boolean",
+        "string"
+      ],
+      "default": false,
+      "enum": [
+        true,
+        false,
+        "json",
+        "JSON"
+      ],
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "dry-run",
+      "description": "Run through and reports activity without writing out results.\n\n运行一遍并汇报其活动轨迹，但不真的写入任何结果。",
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "aliases": [
+        "d"
+      ],
+      "hidden": false
+    },
+    {
+      "name": "force",
+      "description": "Force overwriting of existing files.\n\n强制覆盖现存文件。",
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "aliases": [
+        "f"
+      ],
+      "hidden": false
+    },
+    {
+      "name": "interactive",
+      "description": "Enable interactive input prompts.\n\n启用交互式输入提示。",
+      "type": "boolean",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "defaults",
+      "description": "Disable interactive input prompts for options with a default.\n\n对有默认值的选项禁用交互式输入提示。",
+      "type": "boolean",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "directory",
+      "description": "The directory name to create the workspace in.\n\n要在其中创建工作空间的目录名称。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "name",
+      "description": "The name of the new workspace and initial project.\n\n新工作空间和初始项目的名称。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "format": "html-selector",
+      "hidden": false,
+      "positional": 0
+    },
+    {
+      "name": "skip-install",
+      "description": "Do not install dependency packages.\n\n不要安装依赖包。",
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "skip-git",
+      "description": "Do not initialize a git repository.\n\n不要初始化 git 仓库。",
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "aliases": [
+        "g"
+      ],
+      "hidden": false
+    },
+    {
+      "name": "commit",
+      "description": "Initial git repository commit information.\n\n初始 git 仓库提交信息。",
+      "type": "boolean",
+      "default": true,
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "new-project-root",
+      "description": "The path where new projects will be created, relative to the new workspace root.\n\n要创建的新项目的路径。是相对于新工作空间根目录的。",
+      "type": "string",
+      "default": "projects",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "inline-style",
+      "description": "Include styles inline in the component TS file. By default, an external styles file is created and referenced in the component TypeScript file.\n\n在组件 TS 文件中包含内联样式。默认情况下，将创建一个外部样式文件，并在组件 TypeScript 文件中对其进行引用。",
+      "type": "boolean",
+      "required": false,
+      "aliases": [
+        "s"
+      ],
+      "hidden": false,
+      "userAnalytics": 9
+    },
+    {
+      "name": "inline-template",
+      "description": "Include template inline in the component TS file. By default, an external template file is created and referenced in the component TypeScript file.\n\n在组件 TS 文件中包含内联模板。默认情况下，将创建一个外部模板文件，并在组件 TypeScript 文件中对其进行引用。",
+      "type": "boolean",
+      "required": false,
+      "aliases": [
+        "t"
+      ],
+      "hidden": false,
+      "userAnalytics": 10
+    },
+    {
+      "name": "view-encapsulation",
+      "description": "The view encapsulation strategy to use in the initial project.\n\n用在初始项目中的视图封装策略。",
+      "type": "string",
+      "enum": [
+        "Emulated",
+        "Native",
+        "None",
+        "ShadowDom"
+      ],
+      "required": false,
+      "aliases": [],
+      "hidden": false,
+      "userAnalytics": 11
+    },
+    {
+      "name": "routing",
+      "description": "Generate a routing module for the initial project.\n\n为初始项目生成一个路由模块。",
+      "type": "boolean",
+      "required": false,
+      "aliases": [],
+      "hidden": false,
+      "userAnalytics": 17
+    },
+    {
+      "name": "prefix",
+      "description": "The prefix to apply to generated selectors for the initial project.\n\n适用于初始项目的生成选择器的前缀。",
+      "type": "string",
+      "default": "app",
+      "required": false,
+      "aliases": [
+        "p"
+      ],
+      "format": "html-selector",
+      "hidden": false
+    },
+    {
+      "name": "style",
+      "description": "The file extension or preprocessor to use for style files.\n\n用于样式文件的扩展名/预处理器。",
+      "type": "string",
+      "enum": [
+        "css",
+        "scss",
+        "sass",
+        "less",
+        "styl"
+      ],
+      "required": false,
+      "aliases": [],
+      "hidden": false,
+      "userAnalytics": 5
+    },
+    {
+      "name": "skip-tests",
+      "description": "Do not generate \"spec.ts\" test files for the new project.\n\n不要为新项目生成 “spec.ts” 测试文件。",
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "aliases": [
+        "S"
+      ],
+      "hidden": false,
+      "userAnalytics": 12
+    },
+    {
+      "name": "create-application",
+      "description": "Create a new initial application project in the 'src' folder of the new workspace. When false, creates an empty workspace with no initial application. You can then use the generate application command so that all applications are created in the projects folder.\n\n在新工作区的 “src” 文件夹中创建一个新的初始应用程序项目。如果为 false，则会创建一个没有初始应用程序的空工作空间。然后，你可以使用 generate application 命令，以便让所有应用程序都创建在自己的项目文件夹中。",
+      "type": "boolean",
+      "default": true,
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "minimal",
+      "description": "Create a workspace without any testing frameworks. (Use for learning purposes only.)\n\n创建没有任何测试框架的工作空间。（仅用于学习目的。）",
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "aliases": [],
+      "hidden": false,
+      "userAnalytics": 14
+    },
+    {
+      "name": "strict",
+      "description": "Creates a workspace with stricter type checking and stricter bundle budgets settings. This setting helps improve maintainability and catch bugs ahead of time. For more information, see https://angular.io/guide/strict-mode\n\n创建带有更严格类型检查和更严格捆绑包预算设置的工作空间。此设置有助于提升可维护性，并预先捕获 BUG。欲知详情，参见 https://angular.cn/guide/strict-mode",
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "aliases": [],
+      "hidden": false,
+      "userAnalytics": 7
+    },
+    {
+      "name": "legacy-browsers",
+      "description": "Add support for legacy browsers like Internet Explorer using differential loading.\n\n使用差异化加载添加对 Internet Explorer 等旧版浏览器的支持。",
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "package-manager",
+      "description": "The package manager used to install dependencies.\n\n用于安装依赖项的包管理器。",
+      "type": "string",
+      "enum": [
+        "npm",
+        "yarn",
+        "pnpm",
+        "cnpm"
+      ],
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    }
+  ],
+  "aliases": [
+    "n"
+  ],
+  "scope": "out",
+  "hidden": false
+}

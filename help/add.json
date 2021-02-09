@@ -1,0 +1,71 @@
+{
+  "name": "add",
+  "description": "Adds support for an external library to your project.\n\n为你的项目添加对外部库的支持",
+  "longDescription": "Adds the npm package for a published library to your workspace, and configures\nthe project in the current working directory (or the default project if you are\nnot in a project directory) to use that library, as specified by the library's schematic.\nFor example, adding `@angular/pwa` configures your project for PWA support:\n\n把一个已发布库的 npm 包添加到你的工作空间中，并且在当前工作目录下按照该库的原理图对项目进行配置，以使用该库。（如果没有在项目目录下，则为默认项目）。\n比如添加 `@angular/pwa` 会把你的项目配置为支持 PWA 的：\n\n```bash\nng add @angular/pwa\n```\n\nThe default project is the value of `defaultProject` in `angular.json`.\n\n默认项目就是指 `angular.json` 中的 `defaultProject` 所指定的。\n",
+  "options": [
+    {
+      "name": "collection",
+      "description": "The package to be added.\n\n要添加的包。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false,
+      "positional": 0
+    },
+    {
+      "name": "registry",
+      "description": "The NPM registry to use.\n\n要使用的 NPM registry。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "verbose",
+      "description": "Display additional details about internal operations during execution.\n\n在执行期间显示内部操作的详细信息。",
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "interactive",
+      "description": "Enable interactive input prompts.\n\n启用交互式输入提示。",
+      "type": "boolean",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "defaults",
+      "description": "Disable interactive input prompts for options with a default.\n\n对有默认值的选项禁用交互式输入提示。",
+      "type": "boolean",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "help",
+      "description": "Shows a help message for this command in the console.\n\n在控制台显示关于本命令的帮助信息。",
+      "type": "boolean",
+      "types": [
+        "boolean",
+        "string"
+      ],
+      "default": false,
+      "enum": [
+        true,
+        false,
+        "json",
+        "JSON"
+      ],
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    }
+  ],
+  "aliases": [],
+  "scope": "in",
+  "hidden": false
+}

@@ -1,0 +1,181 @@
+{
+  "name": "test",
+  "description": "Runs unit tests in a project.\n\n运行某个项目中的单元测试。",
+  "longDescription": "Takes the name of the project, as specified in the `projects` section of the `angular.json` workspace configuration file.\nWhen a project name is not supplied, it will execute for all projects.\n\n获取在工作空间配置文件 `angular.json` 的 `projects` 部分指定的项目名称。如果未提供项目名称，它将对所有项目执行。\n\n",
+  "options": [
+    {
+      "name": "project",
+      "description": "The name of the project to build. Can be an application or a library.\n\n要构建的项目名。可以是应用或库。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false,
+      "positional": 0
+    },
+    {
+      "name": "configuration",
+      "description": "One or more named builder configurations as a comma-separated list as specified in the \"configurations\" section of angular.json.\nThe builder uses the named configurations to run the given target.\nFor more information, see https://angular.io/guide/workspace-config#alternate-build-configurations.\nSetting this explicitly overrides the \"--prod\" flag.\n\n构建器的一个或多个命名配置，是一个逗号分隔的列表，就像在 angular.json 的 \"configurations\" 部分指定的一样。\n构建器使用这些命名配置运行给定的目标。\n欲知详情，参见 https://angular.cn/guide/workspace-config#alternate-build-configurations。\n可以通过显式指定 \"--prod\" 标志来覆盖它。",
+      "type": "string",
+      "required": false,
+      "aliases": [
+        "c"
+      ],
+      "hidden": false
+    },
+    {
+      "name": "prod",
+      "description": "Shorthand for \"--configuration=production\".\nSet the build configuration to the production target.\nBy default, the production target is set up in the workspace configuration such that all builds make use of bundling, limited tree-shaking, and also limited dead code elimination.\n\n\"--configuration=production\" 的简写形式。\n把构建配置的目标设置为产品环境。\n默认情况下，产品环境目标是在工作空间配置中设置的，可以设置打包方式、摇树优化限制、死代码移除限制等方面。",
+      "type": "boolean",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "help",
+      "description": "Shows a help message for this command in the console.\n\n在控制台显示关于本命令的帮助信息。",
+      "type": "boolean",
+      "types": [
+        "boolean",
+        "string"
+      ],
+      "default": false,
+      "enum": [
+        true,
+        false,
+        "json",
+        "JSON"
+      ],
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "main",
+      "description": "The name of the main entry-point file.\n\n主入口点文件的名称。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "ts-config",
+      "description": "The name of the TypeScript configuration file.\n\nTypeScript 配置文件的名称。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "karma-config",
+      "description": "The name of the Karma configuration file.\n\nKarma 配置文件的名称。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "polyfills",
+      "description": "The name of the polyfills file.\n\npolyfills 文件的名称。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "include",
+      "description": "Globs of files to include, relative to workspace or project root. \nThere are 2 special cases:\n\n要包含的文件的 glob，是相对于工作空间或项目根目录的。\n 有两个特例：\n\n - when a path to directory is provided, all spec files ending \".spec.@(ts|tsx)\" will be included\n\n   当提供的是目录路径时，会包含所有以 \".spec.@(ts|tsx)\" 结尾的规约文件。\n\n - when a path to a file is provided, and a matching spec file exists it will be included instead\n\n   当提供的是文件路径并且匹配的规约文件存在时，会包含这些匹配的文件。",
+      "type": "array",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "source-map",
+      "description": "Output source maps for scripts and styles. For more information, see https://angular.io/guide/workspace-config#source-map-configuration.\n\n输出脚本和样式的源码映射信息。欲知详情，请参阅<https://angular.cn/guide/workspace-config#source-map-configuration>。",
+      "type": "boolean",
+      "default": true,
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "progress",
+      "description": "Log progress to the console while building.\n\n在构建时将进度记录到控制台。",
+      "type": "boolean",
+      "default": true,
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "watch",
+      "description": "Run build when files change.\n\n当文件更改时运行构建。",
+      "type": "boolean",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "poll",
+      "description": "Enable and define the file watching poll time period in milliseconds.\n\n启用并定义文件监视轮询间隔（以毫秒为单位）。",
+      "type": "number",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "preserve-symlinks",
+      "description": "Do not use the real path when resolving modules. If unset then will default to `true` if NodeJS option --preserve-symlinks is set.\n\n当解析模块时，不要使用真实路径。如果未设置，则如果 NodeJS 启用了 --preserve-symlinks 选项，就默认为 `true`。",
+      "type": "boolean",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "browsers",
+      "description": "Override which browsers tests are run against.\n\n覆盖要针对哪些浏览器运行测试。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "code-coverage",
+      "description": "Output a code coverage report.\n\n输出代码覆盖率报告。",
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "code-coverage-exclude",
+      "description": "Globs to exclude from code coverage.\n\n排除在代码覆盖范围之外的 glob。",
+      "type": "array",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "reporters",
+      "description": "Karma reporters to use. Directly passed to the karma runner.\n\n要使用的 Karma 汇报器。直接传给 Karma 运行器。",
+      "type": "array",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "web-worker-ts-config",
+      "description": "TypeScript configuration for Web Worker modules.\n\nWeb Worker 模块的 TypeScript 配置。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    }
+  ],
+  "aliases": [
+    "t"
+  ],
+  "scope": "in",
+  "hidden": false
+}

@@ -1,0 +1,59 @@
+{
+  "name": "analytics",
+  "description": "Configures the gathering of Angular CLI usage metrics. See https://angular.io/cli/usage-analytics-gathering.\n\n配置 Angular CLI 使用情况度量的收集策略。参见 https://angular.cn/cli/usage-analytics-gathering。",
+  "longDescription": "The value of *settingOrProject* is one of the following.\n\n*settingOrProject* 取以下值之一。\n\n* \"on\" : Enables analytics gathering and reporting for the user.\n\n  \"on\"：启用此用户的分析收集和上报功能。\n\n* \"off\" : Disables analytics gathering and reporting for the user.\n\n  \"off\"：禁用此用户的分析收集和上报功能。\n\n* \"ci\" : Enables analytics and configures reporting for use with Continuous Integration,\nwhich uses a common CI user.\n\n  \"ci\"：启用分析并为持续集成环境配置上报功能，这通常会使用一个普通 CI 用户。\n\n* \"prompt\" : Prompts the user to set the status interactively.\n\n  \"prompt\"：提示用户交互式的设置此状态。\n\n* \"project\" : Sets the default status for the project to the *projectSetting* value, which can be any of the other values. The *projectSetting* argument is ignored for all other values of *settingOrProject*.\n\n  \"project\"：将项目的默认状态设置为 *projectSetting* 的值，该值可以是任何其他值。对于 *settingOrProject* 的所有其他值，该 *projectSetting* 参数会被忽略。\n\n",
+  "options": [
+    {
+      "name": "setting-or-project",
+      "description": "Directly enables or disables all usage analytics for the user, or prompts the user to set the status interactively, or sets the default status for the project.\n\n直接启用或禁用当前用户的所有使用情况分析，或交互式的提示用户进行设置，或设置项目的默认状态。",
+      "type": "string",
+      "enum": [
+        "on",
+        "off",
+        "ci",
+        "project",
+        "prompt"
+      ],
+      "required": false,
+      "aliases": [],
+      "hidden": false,
+      "positional": 0
+    },
+    {
+      "name": "help",
+      "description": "Shows a help message for this command in the console.\n\n在控制台显示关于本命令的帮助信息。",
+      "type": "boolean",
+      "types": [
+        "boolean",
+        "string"
+      ],
+      "default": false,
+      "enum": [
+        true,
+        false,
+        "json",
+        "JSON"
+      ],
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "project-setting",
+      "description": "Sets the default analytics enablement status for the project.\n\n为本项目设置使用情况分析的默认启用状态。",
+      "type": "string",
+      "enum": [
+        "on",
+        "off",
+        "prompt"
+      ],
+      "required": false,
+      "aliases": [],
+      "hidden": false,
+      "positional": 1
+    }
+  ],
+  "aliases": [],
+  "scope": "all",
+  "hidden": false
+}

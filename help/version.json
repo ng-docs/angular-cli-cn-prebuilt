@@ -1,0 +1,30 @@
+{
+  "name": "version",
+  "description": "Outputs Angular CLI version.\n\n输出 Angular CLI 的版本。",
+  "options": [
+    {
+      "name": "help",
+      "description": "Shows a help message for this command in the console.\n\n在控制台显示关于本命令的帮助信息。",
+      "type": "boolean",
+      "types": [
+        "boolean",
+        "string"
+      ],
+      "default": false,
+      "enum": [
+        true,
+        false,
+        "json",
+        "JSON"
+      ],
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    }
+  ],
+  "aliases": [
+    "v"
+  ],
+  "scope": "all",
+  "hidden": false
+}

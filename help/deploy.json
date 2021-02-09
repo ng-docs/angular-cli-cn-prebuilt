@@ -1,0 +1,48 @@
+{
+  "name": "deploy",
+  "description": "Invokes the deploy builder for a specified project or for the default project in the workspace.\n\n为指定的项目或默认项目，执行部署构建器。",
+  "longDescription": "The command takes an optional project name, as specified in the `projects` section of the `angular.json` workspace configuration file.\nWhen a project name is not supplied, executes the `deploy` builder for the default project.\n\n该命令采用可选的项目名称，和 `angular.json` 工作区配置文件 `projects` 部分中所指定的一样。如果未提供项目名称，则为默认项目执行 `deploy` 构建器。\n\nTo use the `ng deploy` command, use `ng add` to add a package that implements deployment capabilities to your favorite platform.\nAdding the package automatically updates your workspace configuration, adding a deployment\n[CLI builder](guide/cli-builder).\nFor example:\n\n要使用 `ng deploy` 命令，请使用 `ng add` 来添加一个实现部署目标平台的功能的包。添加软件包会自动更新你的工作区配置，并添加一个部署用的 [CLI 构建器](guide/cli-builder)。例如：\n\n```json\n\"projects\": {\n  \"my-project\": {\n    ...\n    \"architect\": {\n      ...\n      \"deploy\": {\n        \"builder\": \"@angular/fire:deploy\",\n        \"options\": {}\n      }\n    }\n  }\n}\n ```",
+  "options": [
+    {
+      "name": "project",
+      "description": "The name of the project to deploy.\n\n要部署的项目名。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false,
+      "positional": 0
+    },
+    {
+      "name": "configuration",
+      "description": "One or more named builder configurations as a comma-separated list as specified in the \"configurations\" section of angular.json.\nThe builder uses the named configurations to run the given target.\nFor more information, see https://angular.io/guide/workspace-config#alternate-build-configurations.\n\n构建器的一个或多个命名配置，是一个逗号分隔的列表，就像在 angular.json 的 \"configurations\" 部分指定的一样。\n本构建器使用这些命名配置来运行给定的目标。\n欲知详情，参见 https://angular.cn/guide/workspace-config#alternate-build-configurations。",
+      "type": "string",
+      "required": false,
+      "aliases": [
+        "c"
+      ],
+      "hidden": false
+    },
+    {
+      "name": "help",
+      "description": "Shows a help message for this command in the console.\n\n在控制台显示关于本命令的帮助信息。",
+      "type": "boolean",
+      "types": [
+        "boolean",
+        "string"
+      ],
+      "default": false,
+      "enum": [
+        true,
+        false,
+        "json",
+        "JSON"
+      ],
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    }
+  ],
+  "aliases": [],
+  "scope": "in",
+  "hidden": false
+}

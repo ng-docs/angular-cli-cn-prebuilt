@@ -1,0 +1,62 @@
+{
+  "name": "doc",
+  "description": "Opens the official Angular documentation (angular.io) in a browser, and searches for a given keyword.\n\n在浏览器中打开 Angular 官方文档中文版 (angular.cn)，并搜索给定的关键字。",
+  "options": [
+    {
+      "name": "keyword",
+      "description": "The keyword to search for, as provided in the search bar in angular.io.\n\n要搜索的关键字，和 angular.cn 搜索框中提供的关键字是一样的。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false,
+      "positional": 0
+    },
+    {
+      "name": "search",
+      "description": "Search all of angular.io. Otherwise, searches only API reference documentation.\n\n搜索整个 angular.cn。否则只搜索 API 参考手册。",
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "aliases": [
+        "s"
+      ],
+      "hidden": false
+    },
+    {
+      "name": "version",
+      "description": "Contains the version of Angular to use for the documentation. If not provided, the command uses your current Angular core version.\n\n要用到的 Angular 版本。如果未提供，则使用你的当前 Angular 核心版本。",
+      "type": "number",
+      "types": [
+        "number",
+        "string"
+      ],
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "help",
+      "description": "Shows a help message for this command in the console.\n\n在控制台显示关于本命令的帮助信息。",
+      "type": "boolean",
+      "types": [
+        "boolean",
+        "string"
+      ],
+      "default": false,
+      "enum": [
+        true,
+        false,
+        "json",
+        "JSON"
+      ],
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    }
+  ],
+  "aliases": [
+    "d"
+  ],
+  "scope": "in",
+  "hidden": false
+}

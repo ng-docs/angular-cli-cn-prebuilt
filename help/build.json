@@ -1,0 +1,424 @@
+{
+  "name": "build",
+  "description": "Compiles an Angular app into an output directory named dist/ at the given output path. Must be executed from within a workspace directory.\n\n把 Angular 应用编译到给定输出路径下名为 dist/ 的输出目录中。此命令必须在工作空间目录下执行。",
+  "longDescription": "The command can be used to build a project of type \"application\" or \"library\".\nWhen used to build a library, a different builder is invoked, and only the `ts-config`, `configuration`, and `watch` options are applied.\nAll other options apply only to building applications.\n\n该命令可用于构建“应用程序”或“库”类型的项目。当用于构建库时，将调用其他构建器，并且仅应用 `ts-config`、`configuration` 和 `watch` 选项。所有其他选项仅适用于构建应用程序。\n\nThe application builder uses the [webpack](https://webpack.js.org/) build tool, with default configuration options specified in the workspace configuration file (`angular.json`) or with a named alternative configuration.\nA \"production\" configuration is created by default when you use the CLI to create the project, and you can use that configuration by specifying the `--configuration=\"production\"` or the `--prod` option.\n\n应用程序构建器使用 [webpack](https://webpack.js.org/) 作为构建工具，并在工作区配置文件（`angular.json`）中指定默认配置选项，或者使用有名字的替代配置。使用 CLI 创建项目时，默认情况下会创建 \"production\" 配置，并且可以通过指定 `--configuration=\"production\"` 或 `--prod` 选项来使用该配置。\n\nThe configuration options generally correspond to the command options.\nYou can override individual configuration defaults by specifying the corresponding options on the command line.\nThe command can accept option names given in either dash-case or camelCase.\nNote that in the configuration file, you must specify names in camelCase.\n\n配置选项通常与命令选项相对应。你可以通过在命令行上指定相应的选项来覆盖各个配置的默认值。该命令可以接受以中线形式（dash-case）或小驼峰形式（camelCase）给出的选项名称。请注意，在配置文件中，必须以小驼峰形式指定名称。\n\nSome additional options can only be set through the configuration file,\neither by direct editing or with the `ng config` command.\nThese include `assets`, `styles`, and `scripts` objects that provide runtime-global resources to include in the project.\nResources in CSS, such as images and fonts, are automatically written and fingerprinted at the root of the output folder.\n\n某些其他选项只能通过配置文件设置，方法是直接编辑它或使用 `ng config` 命令。其中包括 `assets`、`styles` 和 `scripts` 对象，这些对象提供了一些要包括在项目中的运行时全局资源。 CSS 中的资源（例如图像和字体）会自动写入输出文件夹的根目录并添加文件指纹。\n\nFor further details, see [Workspace Configuration](guide/workspace-config).\n\n欲知详情，请参见[工作区配置](guide/workspace-config)。\n\n",
+  "options": [
+    {
+      "name": "project",
+      "description": "The name of the project to build. Can be an application or a library.\n\n要构建的项目名。可以是应用或库。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false,
+      "positional": 0
+    },
+    {
+      "name": "configuration",
+      "description": "One or more named builder configurations as a comma-separated list as specified in the \"configurations\" section of angular.json.\nThe builder uses the named configurations to run the given target.\nFor more information, see https://angular.io/guide/workspace-config#alternate-build-configurations.\nSetting this explicitly overrides the \"--prod\" flag.\n\n构建器的一个或多个命名配置，是一个逗号分隔的列表，就像在 angular.json 的 \"configurations\" 部分指定的一样。\n构建器使用这些命名配置运行给定的目标。\n欲知详情，参见 https://angular.cn/guide/workspace-config#alternate-build-configurations。\n可以通过显式指定 \"--prod\" 标志来覆盖它。",
+      "type": "string",
+      "required": false,
+      "aliases": [
+        "c"
+      ],
+      "hidden": false
+    },
+    {
+      "name": "prod",
+      "description": "Shorthand for \"--configuration=production\".\nSet the build configuration to the production target.\nBy default, the production target is set up in the workspace configuration such that all builds make use of bundling, limited tree-shaking, and also limited dead code elimination.\n\n\"--configuration=production\" 的简写形式。\n把构建配置的目标设置为产品环境。\n默认情况下，产品环境目标是在工作空间配置中设置的，可以设置打包方式、摇树优化限制、死代码移除限制等方面。",
+      "type": "boolean",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "help",
+      "description": "Shows a help message for this command in the console.\n\n在控制台显示关于本命令的帮助信息。",
+      "type": "boolean",
+      "types": [
+        "boolean",
+        "string"
+      ],
+      "default": false,
+      "enum": [
+        true,
+        false,
+        "json",
+        "JSON"
+      ],
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "main",
+      "description": "The full path for the main entry point to the app, relative to the current workspace.\n\n应用程序主入口点的完整路径。是相对于当前工作空间的。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "polyfills",
+      "description": "The full path for the polyfills file, relative to the current workspace.\n\npolyfills 文件的完整路径。是相对于当前工作空间的。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "ts-config",
+      "description": "The full path for the TypeScript configuration file, relative to the current workspace.\n\nTypeScript 配置文件相对于当前工作空间的完整路径。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "optimization",
+      "description": "Enables optimization of the build output. Including minification of scripts and styles, tree-shaking, dead-code elimination, inlining of critical CSS and fonts inlining. For more information, see https://angular.io/guide/workspace-config#optimization-configuration.\n\n启用构建输出的优化。包括脚本和样式的最小化、摇树优化、消除死代码、内联关键 CSS 和内联字体等。欲知详情，请参阅<https://angular.cn/guide/workspace-config#optimization-configuration>。",
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "aliases": [],
+      "hidden": false,
+      "userAnalytics": 16
+    },
+    {
+      "name": "output-path",
+      "description": "The full path for the new output directory, relative to the current workspace.\n\n新输出目录的完整路径，是相对于当前工作空间的。\n\nBy default, writes output to a folder named dist/ in the current project.\n\n默认情况下，会将输出写入当前项目中名为 dist/ 的文件夹。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "resources-output-path",
+      "description": "The path where style resources will be placed, relative to outputPath.\n\n放置样式资源的路径，是相对于 outputPath 的。",
+      "type": "string",
+      "default": "",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "aot",
+      "description": "Build using Ahead of Time compilation.\n\n使用预先编译模式进行构建。",
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "aliases": [],
+      "hidden": false,
+      "userAnalytics": 13
+    },
+    {
+      "name": "source-map",
+      "description": "Output source maps for scripts and styles. For more information, see https://angular.io/guide/workspace-config#source-map-configuration.\n\n输出脚本和样式的源码映射信息。欲知详情，请参阅<https://angular.cn/guide/workspace-config#source-map-configuration>。",
+      "type": "boolean",
+      "default": true,
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "vendor-chunk",
+      "description": "Generate a seperate bundle containing only vendor libraries. This option should only used for development.\n\n生成仅包含供应商库的单独捆绑包。此选项只能用于开发阶段。",
+      "type": "boolean",
+      "default": true,
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "common-chunk",
+      "description": "Generate a seperate bundle containing code used across multiple bundles.\n\n生成一个单独的捆绑包，其中包含跨多个捆绑包使用的代码。",
+      "type": "boolean",
+      "default": true,
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "base-href",
+      "description": "Base url for the application being built.\n\n正在构建的应用程序的 base URL。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "deploy-url",
+      "description": "URL where files will be deployed.\n\n文件将部署到的 URL。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "verbose",
+      "description": "Adds more details to output logging.\n\n将更多详细信息添加到输出日志记录。",
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "progress",
+      "description": "Log progress to the console while building.\n\n在构建时将进度记录到控制台。",
+      "type": "boolean",
+      "default": true,
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "i18n-file",
+      "description": "Localization file to use for i18n.\n\n用于 i18n 的本地化文件。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false,
+      "deprecated": "Use 'locales' object in the project metadata instead.\n\n改用项目元数据中的 'locales' 对象代替。"
+    },
+    {
+      "name": "i18n-format",
+      "description": "Format of the localization file specified with --i18n-file.\n\n用 --i18n-file 指定的本地化文件的格式。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false,
+      "deprecated": "No longer needed as the format will be determined automatically.\n\n不需要了，因为现在会自动确定格式。"
+    },
+    {
+      "name": "i18n-locale",
+      "description": "Locale to use for i18n.\n\n用于 i18n 的语言环境。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false,
+      "deprecated": "Use 'localize' instead.\n\n使用 'localize' 代替。"
+    },
+    {
+      "name": "i18n-missing-translation",
+      "description": "How to handle missing translations for i18n.\n\ni18n 要如何处理缺失翻译。",
+      "type": "string",
+      "default": "warning",
+      "enum": [
+        "warning",
+        "error",
+        "ignore"
+      ],
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "localize",
+      "description": "Translate the bundles in one or more locales.\n\n在一个或多个语言环境下翻译这些包。",
+      "type": "boolean",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "extract-css",
+      "description": "Extract CSS from global styles into '.css' files instead of '.js'.\n\n从全局样式中将 CSS 提取到 “.css”文件而不是 “.js”文件中。",
+      "type": "boolean",
+      "default": true,
+      "required": false,
+      "aliases": [],
+      "hidden": false,
+      "deprecated": "Deprecated since version 11.0. No longer required to disable CSS extraction for HMR.\n\n从 11.0 开始已弃用。因为 HMR 要禁用 CSS 提取，所以不需要了。"
+    },
+    {
+      "name": "watch",
+      "description": "Run build when files change.\n\n当文件更改时自动构建。",
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "output-hashing",
+      "description": "Define the output filename cache-busting hashing mode.\n\n定义输出文件名的缓存无效哈希（cache-busting hashing）的模式。",
+      "type": "string",
+      "default": "none",
+      "enum": [
+        "none",
+        "all",
+        "media",
+        "bundles"
+      ],
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "poll",
+      "description": "Enable and define the file watching poll time period in milliseconds.\n\n启用并定义文件监视的轮询间隔（以毫秒为单位）。",
+      "type": "number",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "delete-output-path",
+      "description": "Delete the output path before building.\n\n在构建之前，删除输出路径。",
+      "type": "boolean",
+      "default": true,
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "preserve-symlinks",
+      "description": "Do not use the real path when resolving modules. If unset then will default to `true` if NodeJS option --preserve-symlinks is set.\n\n当解析模块时，不要使用真实路径。如果未设置，则如果 NodeJS 启用了 --preserve-symlinks 选项，就默认为 `true`。",
+      "type": "boolean",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "extract-licenses",
+      "description": "Extract all licenses in a separate file.\n\n将所有许可证（license）提取到一个单独的文件中。",
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "show-circular-dependencies",
+      "description": "Show circular dependency warnings on builds.\n\n在构建中显示循环依赖项警告。",
+      "type": "boolean",
+      "default": true,
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "build-optimizer",
+      "description": "Enables '@angular-devkit/build-optimizer' optimizations when using the 'aot' option.\n\n当使用 'aot' 选项时启用 '@angular-devkit/build-optimizer' 优化。",
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "named-chunks",
+      "description": "Use file name for lazy loaded chunks.\n\n对于惰性加载的块，使用文件名进行命名。",
+      "type": "boolean",
+      "default": true,
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "subresource-integrity",
+      "description": "Enables the use of subresource integrity validation.\n\n启用子资源完整性验证。",
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "service-worker",
+      "description": "Generates a service worker config for production builds.\n\n在生产环境构建中生成 Service Worker 配置。",
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "ngsw-config-path",
+      "description": "Path to ngsw-config.json.\n\nngsw-config.json 的路径。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "index",
+      "description": "Configures the generation of the application's HTML index.\n\n配置应用程序的 index.html 的生成方式。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "stats-json",
+      "description": "Generates a 'stats.json' file which can be analyzed using tools such as 'webpack-bundle-analyzer'.\n\n生成一个 “stats.json” 文件，可以使用 “webpack-bundle-analyzer” 之类的工具进行分析。",
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "fork-type-checker",
+      "description": "Run the TypeScript type checker in a forked process.\n\n在子进程（forked process）中运行 TypeScript 类型检查器。",
+      "type": "boolean",
+      "default": true,
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "lazy-modules",
+      "description": "List of additional NgModule files that will be lazy loaded. Lazy router modules will be discovered automatically.\n\n要惰性加载的其他 NgModule 文件的列表。那些惰性加载的路由模块会自动发现，不用在这里添加。",
+      "type": "array",
+      "required": false,
+      "aliases": [],
+      "hidden": false,
+      "deprecated": "'SystemJsNgModuleLoader' is deprecated, and this is part of its usage. Use 'import()' syntax instead.\n\n'SystemJsNgModuleLoader' 已弃用，这是它的一部分。用 'import()' 语法代替。"
+    },
+    {
+      "name": "web-worker-ts-config",
+      "description": "TypeScript configuration for Web Worker modules.\n\nWeb Worker 模块的 TypeScript 配置。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "cross-origin",
+      "description": "Define the crossorigin attribute setting of elements that provide CORS support.\n\n定义提供 CORS 支持的元素的 crossorigin 属性设置。",
+      "type": "string",
+      "default": "none",
+      "enum": [
+        "none",
+        "anonymous",
+        "use-credentials"
+      ],
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "experimental-rollup-pass",
+      "description": "Concatenate modules with Rollup before bundling them with Webpack.\n\n在用 Webpack 对一些模块进行打包之前，先用 Rollup 把它们连成一个文件。",
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "allowed-common-js-dependencies",
+      "description": "A list of CommonJS packages that are allowed to be used without a build time warning.\n\n允许在没有构建期警告的前提下使用的 CommonJS 软件包列表。",
+      "type": "array",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    }
+  ],
+  "aliases": [
+    "b"
+  ],
+  "scope": "in",
+  "hidden": false
+}

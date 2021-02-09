@@ -1,0 +1,121 @@
+{
+  "name": "update",
+  "description": "Updates your application and its dependencies. See https://update.angular.io/\n\n更新你的应用及其依赖。参见 https://update.angular.io/",
+  "longDescription": "Perform a basic update to the current stable release of the core framework and CLI by running the following command.\n\n通过运行以下命令，对核心框架和 CLI 的当前稳定版本执行基本更新。\n\n```\nng update @angular/cli @angular/core\n```\n\nTo update to the next beta or pre-release version, use the `--next` option.\n\n要更新到下一个 Beta 或预发行版本，请使用 `--next` 选项。\n\nTo update from one major version to another, use the format\n\n要从一个主要版本更新到另一个，请使用以下格式\n\n```\nng update @angular/cli@^<major_version> @angular/core@^<major_version>\n```\n\nWe recommend that you always update to the latest patch version, as it contains fixes we released since the initial major release.\nFor example, use the following command to take the latest 10.x.x version and use that to update.\n\n我们建议你始终更新到最新的补丁版本，因为它包含我们自最初的主版本以来发布的修复程序。例如，使用以下命令获取最新的 10.xx 版本并使用该版本进行更新。\n\n```\nng update @angular/cli@^10 @angular/core@^10\n```\n\nFor detailed information and guidance on updating your application, see the interactive [Angular Update Guide](https://update.angular.io/).\n\n有关更新应用程序的详细信息和指南，请参见交互式的 [Angular 升级指南](https://update.angular.io/) 。\n\n",
+  "options": [
+    {
+      "name": "help",
+      "description": "Shows a help message for this command in the console.\n\n在控制台显示关于本命令的帮助信息。",
+      "type": "boolean",
+      "types": [
+        "boolean",
+        "string"
+      ],
+      "default": false,
+      "enum": [
+        true,
+        false,
+        "json",
+        "JSON"
+      ],
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "packages",
+      "description": "The names of package(s) to update.\n\n要更新的包名（可以有多个）。",
+      "type": "array",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "force",
+      "description": "If false, will error out if installed packages are incompatible with the update.\n\n如果为 false，那么如果已安装的包与这次更新不兼容，就会报错并退出。",
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "all",
+      "description": "Whether to update all packages in package.json.\n\n是否更新 package.json 中的所有包。",
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "aliases": [],
+      "hidden": false,
+      "deprecated": true
+    },
+    {
+      "name": "next",
+      "description": "Use the prerelease version, including beta and RCs.\n\n使用与发布版本，包括 beta 和 RC。",
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "migrate-only",
+      "description": "Only perform a migration, do not update the installed version.\n\n只执行迁移，而不更新已安装的版本。",
+      "type": "boolean",
+      "types": [
+        "boolean",
+        "string"
+      ],
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "from",
+      "description": "Version from which to migrate from. Only available with a single package being updated, and only on migration only.\n\n要从哪个版本开始迁移。只能用在升级单个包时，而且只能用于迁移工作。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "to",
+      "description": "Version up to which to apply migrations. Only available with a single package being updated, and only on migrations only. Requires from to be specified. Default to the installed version detected.\n\n要迁移到哪个版本。只能用在升级单个包时，而且只能用于迁移工作。需要指定过 from 参数。默认是所检测到的已安装版本。",
+      "type": "string",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "allow-dirty",
+      "description": "Whether to allow updating when the repository contains modified or untracked files.\n\n是否允许本仓库包含已修改或未跟踪的文件时进行更新。",
+      "type": "boolean",
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "verbose",
+      "description": "Display additional details about internal operations during execution.\n\n在执行期间显示关于内部操作的详情。",
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "aliases": [],
+      "hidden": false
+    },
+    {
+      "name": "create-commits",
+      "description": "Create source control commits for updates and migrations.\n\n为升级和迁移的过程，在源码控制中创建一些提交。",
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "aliases": [
+        "C"
+      ],
+      "hidden": false
+    }
+  ],
+  "aliases": [],
+  "scope": "all",
+  "hidden": false
+}
